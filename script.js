@@ -4,7 +4,7 @@ const movieForm = document.getElementById("form");
 const divDisplay = document.getElementById("display");
 const divModal = document.getElementById("modal");
 
-//Search
+// Search
 movieForm.addEventListener("submit", (e) => {
   e.preventDefault();
   divDisplay.innerHTML = "";
@@ -14,13 +14,14 @@ movieForm.addEventListener("submit", (e) => {
     .then((response) => {
       displayMovies(response);
       const readMoreButton = document.getElementById("read-more");
-      readMoreButton.addEventListener("click", function () {
+      readMoreButton.addEventListener("click", () => {
         displayModal(response);
       });
     })
     .catch((error) => console.log(error));
 });
 
+// Display movies
 const displayMovies = (response) => {
   divDisplay.innerHTML += `
   <div class="card">
@@ -44,6 +45,7 @@ const displayMovies = (response) => {
   `;
 };
 
+// Display modal
 const displayModal = (response) => {
   divModal.innerHTML += `
   <div
